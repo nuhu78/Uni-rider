@@ -1,4 +1,4 @@
-/* 1. General Body Styling */
+/* element selector 1 */
 body {
     font-family: Arial, sans-serif;
     background-color: rgb(240, 244, 248);
@@ -7,42 +7,50 @@ body {
     overflow-x: hidden; /* Use of overflow */
     position: relative; /* Position property */
 }
-
-/* 2. Header Styling */
+ 
+/* class selector 2 */
 .header {
     background-color: rgb(0, 0, 0);
     color: white;
     padding: 15px 30px;
     font-size: 24px;
-    position: fixed; /* Positioning header on top */
+    position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000; /* Use of z-index */
+    z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    text-align: left;
 }
-
-/* 3. Form Container Styling */
+ 
+/* element selector 3 */
+h2 {
+    margin-top: 130px;
+    text-align: center;
+}
+ 
+/* element selector 4 */
 form {
     background-color: rgb(255, 255, 255);
     padding: 25px;
-    margin-top: 100px;
+    margin: 0 auto;
+    margin-top: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    display: inline-block; /* Display property */
-    max-width: 600px; /* Use of max-width */
+    display: inline-block;
+    max-width: 600px;
     border: 1px solid #ccc;
 }
-
-/* 4. Table and Input Styling */
+ 
+/* element selector 5 */
 table {
     width: 100%;
     border-collapse: collapse;
 }
-
+ 
 td {
     padding: 10px;
 }
-
+ 
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -55,9 +63,10 @@ select {
     border: 1px solid #ccc;
     margin-top: 5px;
     display: inline-block;
+    box-sizing: border-box;
 }
-
-/* 5. Submit Button Styling */
+ 
+/* attribute selector 6 */
 input[type="submit"] {
     background-color: rgb(40, 167, 69);
     color: white;
@@ -69,7 +78,7 @@ input[type="submit"] {
     transition: background-color 0.3s;
     margin-top: 10px;
 }
-
+ 
 input[type="submit"]:hover {
     background-color: rgb(30, 136, 53);
 }

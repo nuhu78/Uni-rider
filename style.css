@@ -1,12 +1,10 @@
-/* Selector 1: Body styling */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
     overflow-x: hidden;
 }
-
-/* Selector 2: Header with navigation */
+ 
 header {
     background-color: #222;
     color: white;
@@ -18,23 +16,23 @@ header {
     top: 0;
     z-index: 1000;
 }
-
+ 
 .logo {
     font-size: 24px;
     font-weight: bold;
 }
-
+ 
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
 }
-
+ 
 nav ul li {
     margin-left: 20px;
 }
-
+ 
 nav ul li a {
     text-decoration: none;
     color: white;
@@ -42,12 +40,12 @@ nav ul li a {
     border: 1px solid transparent;
     transition: all 0.3s ease;
 }
-
+ 
 nav ul li a:hover {
     border-bottom: 2px solid #00bcd4;
 }
-
-/* Selector 3: Hero section */
+ 
+ 
 .hero {
     background: linear-gradient(135deg, #00bcd4, #2196f3);
     color: white;
@@ -56,15 +54,15 @@ nav ul li a:hover {
     max-width: 100%;
     overflow: hidden;
 }
-
+ 
 .hero h1 {
     font-size: 48px;
     margin-bottom: 20px;
 }
-
+ 
 .cta-button {
     background-color: white;
-    color: #2196f3;
+    color: #38a1f7;
     padding: 10px 20px;
     text-decoration: none;
     font-weight: bold;
@@ -72,8 +70,8 @@ nav ul li a:hover {
     display: inline-block;
     margin-top: 20px;
 }
-
-/* Selector 4: About section */
+ 
+ 
 .about {
     background-color: white;
     text-align: center;
@@ -84,8 +82,8 @@ nav ul li a:hover {
     display: block;
     border-radius: 10px;
 }
-
-/* Selector 5: Footer */
+ 
+ 
 footer {
     background-color: #222;
     color: white;

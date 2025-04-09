@@ -1,4 +1,4 @@
-/* Selector 1: Body styling */
+/* element selector 1 */
 body {
   font-family: Arial, sans-serif;
   background-color: rgb(240, 248, 255);
@@ -6,8 +6,8 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
-
-/* Selector 2: Header styling */
+ 
+/* class selector 2*/
 .header {
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
@@ -15,12 +15,12 @@ body {
   padding: 15px 30px;
   font-size: 24px;
   font-weight: bold;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 10;
 }
-
-/* Selector 3: Form container styling */
+ 
+/* element selector 3 */
 form {
   background-color: rgb(255, 255, 255);
   padding: 20px 30px;
@@ -31,19 +31,19 @@ form {
   margin-top: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-/* Selector 4: Table and input fields */
+ 
+/* element selector 4 */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 10px;
 }
-
+ 
 td {
   padding: 8px;
   vertical-align: top;
 }
-
+/* attribute selector 5 */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -57,8 +57,8 @@ select {
   border-radius: 5px;
   box-sizing: border-box;
 }
-
-/* Selector 5: Submit button */
+ 
+/* element selector 6 */
 input[type="submit"] {
   background-color: rgb(0, 123, 255);
   color: white;
@@ -69,7 +69,7 @@ input[type="submit"] {
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
-
+ 
 input[type="submit"]:hover {
-  background-color: rgb(40, 72, 107);
+  background-color: rgb(0, 100, 210);
 }
