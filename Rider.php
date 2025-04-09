@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <title>Rider Registration</title>
+    <link rel="stylesheet" href="riderstyle.css">
 </head>
 <body>
+<div class="header">Uni-Rider</div>
 <center>
     <h2>Rider Registration Form</h2>
  
