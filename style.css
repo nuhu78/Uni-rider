@@ -1,25 +1,22 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body */
+/* Selector 1: Body styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: rgb(240, 244, 248);
-    color: rgb(33, 37, 41);
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
 }
 
-/* Header */
+/* Selector 2: Header with navigation */
 header {
-    background-color: rgb(0, 0, 0);
+    background-color: #222;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
@@ -29,6 +26,8 @@ header {
 
 nav ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
 }
 
@@ -39,20 +38,23 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: white;
-    font-weight: bold;
-    transition: color 0.3s;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: rgb(100, 181, 246);
+    border-bottom: 2px solid #00bcd4;
 }
 
-/* Hero Section */
+/* Selector 3: Hero section */
 .hero {
-    text-align: center;
-    padding: 80px 20px;
-    background: rgb(0, 123, 255);
+    background: linear-gradient(135deg, #00bcd4, #2196f3);
     color: white;
+    text-align: center;
+    padding: 100px 20px;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .hero h1 {
@@ -60,42 +62,37 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 
-.hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
 .cta-button {
     background-color: white;
-    color: rgb(0, 123, 255);
+    color: #2196f3;
     padding: 10px 20px;
     text-decoration: none;
-    border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    border-radius: 25px;
+    display: inline-block;
+    margin-top: 20px;
 }
 
-.cta-button:hover {
-    background-color: rgb(200, 220, 255);
-}
-
-/* About Section */
+/* Selector 4: About section */
 .about {
-    padding: 50px 20px;
-    text-align: center;
     background-color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    max-width: 900px;
+    display: block;
+    border-radius: 10px;
 }
 
-.about h2 {
-    margin-bottom: 20px;
-    font-size: 32px;
-}
-
-/* Footer */
+/* Selector 5: Footer */
 footer {
-    background-color: rgb(20, 20, 20);
+    background-color: #222;
     color: white;
     text-align: center;
-    padding: 15px 0;
-    font-size: 14px;
+    padding: 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    z-index: 500;
 }
