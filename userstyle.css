@@ -1,0 +1,193 @@
+/* Top Header (optional if you want to add a header later) */ 
+
+.header { 
+
+     background-color: rgb(0, 0, 0); /* Black */ 
+    
+    color: rgb(255, 255, 255); /* White */ 
+    
+      padding: 15px 20px; 
+    
+      font-size: 24px; 
+    
+      font-weight: bold; 
+    
+      text-align: left; 
+    
+    } 
+    
+     
+    
+    /* Page Styling */ 
+    
+    body { 
+    
+      font-family: Arial, sans-serif; 
+    
+      background-color: rgb(240, 244, 248); 
+    
+      margin: 0; 
+    
+      padding: 0; 
+    
+    } 
+    
+     
+    
+    /* Centered Heading */ 
+    
+    h2 { 
+    
+      color: rgb(51, 51, 51); 
+    
+      margin-top: 20px; 
+    
+    } 
+    
+     
+    
+    /* Centering content */ 
+    
+    center { 
+    
+      margin-top: 30px; 
+    
+    } 
+    
+     
+    
+    /* Form Styling */ 
+    
+    form { 
+    
+      background-color: rgb(255, 255, 255); 
+    
+      padding: 20px 30px; 
+    
+      border-radius: 10px; 
+    
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    
+      width: 100%; 
+    
+      max-width: 500px; 
+    
+      box-sizing: border-box; 
+    
+    } 
+    
+     
+    
+    /* Table layout */ 
+    
+    table { 
+    
+      width: 100%; 
+    
+      border-collapse: collapse; 
+    
+    } 
+    
+     
+    
+    /* Table cell styling */ 
+    
+    td { 
+    
+      padding: 10px; 
+    
+      vertical-align: top; 
+    
+    } 
+    
+     
+    
+    /* Label column */ 
+    
+    td:first-child { 
+    
+      width: 40%; 
+    
+      font-weight: bold; 
+    
+      color: rgb(51, 51, 51); 
+    
+    } 
+    
+     
+    
+    /* Inputs and select */ 
+    
+    input[type="text"], 
+    
+    input[type="email"], 
+    
+    input[type="tel"], 
+    
+    input[type="password"], 
+    
+    input[type="date"], 
+    
+    select { 
+    
+      width: 100%; 
+    
+      padding: 8px; 
+    
+      margin-top: 4px; 
+    
+      border: 1px solid rgb(204, 204, 204); 
+    
+      border-radius: 4px; 
+    
+      box-sizing: border-box; 
+    
+    } 
+    
+     
+    
+    /* Radio buttons spacing */ 
+    
+    input[type="radio"] { 
+    
+      margin-right: 5px; 
+    
+      margin-left: 10px; 
+    
+    } 
+    
+     
+    
+    /* Submit button */ 
+    
+    input[type="submit"] { 
+    
+      background-color: rgb(0, 123, 255); /* Blue */ 
+    
+      color: rgb(255, 255, 255); 
+    
+      border: none; 
+    
+      padding: 10px; 
+    
+      font-size: 16px; 
+    
+      border-radius: 4px; 
+    
+      cursor: pointer; 
+    
+      width: 100%; 
+    
+      margin-top: 10px; 
+    
+      transition: background-color 0.3s ease; 
+    
+    } 
+    
+     
+    
+    input[type="submit"]:hover { 
+    
+      background-color: rgb(0, 105, 217); /* Darker Blue */ 
+    
+    } 
