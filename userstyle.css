@@ -1,193 +1,75 @@
-/* Top Header (optional if you want to add a header later) */ 
+/* Selector 1: Body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(240, 248, 255);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
-.header { 
+/* Selector 2: Header styling */
+.header {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  text-align: left;
+  padding: 15px 30px;
+  font-size: 24px;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
-     background-color: rgb(0, 0, 0); /* Black */ 
-    
-    color: rgb(255, 255, 255); /* White */ 
-    
-      padding: 15px 20px; 
-    
-      font-size: 24px; 
-    
-      font-weight: bold; 
-    
-      text-align: left; 
-    
-    } 
-    
-     
-    
-    /* Page Styling */ 
-    
-    body { 
-    
-      font-family: Arial, sans-serif; 
-    
-      background-color: rgb(240, 244, 248); 
-    
-      margin: 0; 
-    
-      padding: 0; 
-    
-    } 
-    
-     
-    
-    /* Centered Heading */ 
-    
-    h2 { 
-    
-      color: rgb(51, 51, 51); 
-    
-      margin-top: 20px; 
-    
-    } 
-    
-     
-    
-    /* Centering content */ 
-    
-    center { 
-    
-      margin-top: 30px; 
-    
-    } 
-    
-     
-    
-    /* Form Styling */ 
-    
-    form { 
-    
-      background-color: rgb(255, 255, 255); 
-    
-      padding: 20px 30px; 
-    
-      border-radius: 10px; 
-    
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-    
-      width: 100%; 
-    
-      max-width: 500px; 
-    
-      box-sizing: border-box; 
-    
-    } 
-    
-     
-    
-    /* Table layout */ 
-    
-    table { 
-    
-      width: 100%; 
-    
-      border-collapse: collapse; 
-    
-    } 
-    
-     
-    
-    /* Table cell styling */ 
-    
-    td { 
-    
-      padding: 10px; 
-    
-      vertical-align: top; 
-    
-    } 
-    
-     
-    
-    /* Label column */ 
-    
-    td:first-child { 
-    
-      width: 40%; 
-    
-      font-weight: bold; 
-    
-      color: rgb(51, 51, 51); 
-    
-    } 
-    
-     
-    
-    /* Inputs and select */ 
-    
-    input[type="text"], 
-    
-    input[type="email"], 
-    
-    input[type="tel"], 
-    
-    input[type="password"], 
-    
-    input[type="date"], 
-    
-    select { 
-    
-      width: 100%; 
-    
-      padding: 8px; 
-    
-      margin-top: 4px; 
-    
-      border: 1px solid rgb(204, 204, 204); 
-    
-      border-radius: 4px; 
-    
-      box-sizing: border-box; 
-    
-    } 
-    
-     
-    
-    /* Radio buttons spacing */ 
-    
-    input[type="radio"] { 
-    
-      margin-right: 5px; 
-    
-      margin-left: 10px; 
-    
-    } 
-    
-     
-    
-    /* Submit button */ 
-    
-    input[type="submit"] { 
-    
-      background-color: rgb(0, 123, 255); /* Blue */ 
-    
-      color: rgb(255, 255, 255); 
-    
-      border: none; 
-    
-      padding: 10px; 
-    
-      font-size: 16px; 
-    
-      border-radius: 4px; 
-    
-      cursor: pointer; 
-    
-      width: 100%; 
-    
-      margin-top: 10px; 
-    
-      transition: background-color 0.3s ease; 
-    
-    } 
-    
-     
-    
-    input[type="submit"]:hover { 
-    
-      background-color: rgb(0, 105, 217); /* Darker Blue */ 
-    
-    } 
+/* Selector 3: Form container styling */
+form {
+  background-color: rgb(255, 255, 255);
+  padding: 20px 30px;
+  border-radius: 10px;
+  border: 1px solid rgb(200, 200, 200);
+  max-width: 500px;
+  display: inline-block;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Selector 4: Table and input fields */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+td {
+  padding: 8px;
+  vertical-align: top;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Selector 5: Submit button */
+input[type="submit"] {
+  background-color: rgb(0, 123, 255);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(0, 100, 210);
+}
