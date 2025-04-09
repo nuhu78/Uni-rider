@@ -1,64 +1,48 @@
-/* Top Bar */
-.header {
-    background-color: rgb(0, 0, 0); /* black */
-    color: rgb(255, 255, 255); /* white */
-    padding: 15px 20px;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: left;
-}
-
-/* Body Styling */
+/* 1. General Body Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: rgb(240, 244, 248);
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Use of overflow */
+    position: relative; /* Position property */
 }
 
-/* Heading */
-h2 {
-    text-align: center;
-    color: rgb(51, 51, 51);
-    margin-top: 20px;
+/* 2. Header Styling */
+.header {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 15px 30px;
+    font-size: 24px;
+    position: fixed; /* Positioning header on top */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Use of z-index */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-/* Centering the form */
-center {
-    margin-top: 30px;
-}
-
-/* Form Box */
+/* 3. Form Container Styling */
 form {
     background-color: rgb(255, 255, 255);
-    padding: 20px;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 450px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
+    padding: 25px;
+    margin-top: 100px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    display: inline-block; /* Display property */
+    max-width: 600px; /* Use of max-width */
+    border: 1px solid #ccc;
 }
 
-/* Table Layout */
+/* 4. Table and Input Styling */
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
-/* Table Cells */
 td {
-    padding: 8px;
-    vertical-align: top;
+    padding: 10px;
 }
 
-/* Label column */
-td:first-child {
-    width: 40%;
-    font-weight: bold;
-    color: rgb(51, 51, 51);
-}
-
-/* Input Fields */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -66,26 +50,26 @@ input[type="number"],
 input[type="password"],
 select {
     width: 100%;
-    padding: 8px;
-    margin-top: 4px;
-    border: 1px solid rgb(204, 204, 204);
-    border-radius: 4px;
-    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    display: inline-block;
 }
 
-/* Submit Button */
+/* 5. Submit Button Styling */
 input[type="submit"] {
     background-color: rgb(40, 167, 69);
-    color: rgb(255, 255, 255);
+    color: white;
     border: none;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 4px;
+    padding: 10px 25px;
+    border-radius: 5px;
     cursor: pointer;
-    width: 100%;
+    font-weight: bold;
+    transition: background-color 0.3s;
     margin-top: 10px;
 }
 
 input[type="submit"]:hover {
-    background-color: rgb(33, 136, 56);
+    background-color: rgb(30, 136, 53);
 }
