@@ -1,3 +1,4 @@
+
 /* element selector 1 */
 body {
     font-family: Arial, sans-serif;
@@ -81,4 +82,11 @@ input[type="submit"] {
  
 input[type="submit"]:hover {
     background-color: rgb(30, 136, 53);
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+    margin-left: 5px;
+    display: block;
 }
