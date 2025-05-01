@@ -8,7 +8,7 @@ body {
     overflow-x: hidden; /* Use of overflow */
     position: relative; /* Position property */
 }
- 
+
 /* class selector 2 */
 .header {
     background-color: rgb(0, 0, 0);
@@ -85,7 +85,7 @@ input[type="submit"]:hover {
 }
 
 .error {
-    color: red;
+    color: blue;
     font-size: 0.9em;
     margin-left: 5px;
     display: block;

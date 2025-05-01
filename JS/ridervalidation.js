@@ -61,5 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!valid) {
             event.preventDefault(); // Prevent form submission
         }
+        else {
+            alert("Form submitted successfully!");
+        }
     });
 });
