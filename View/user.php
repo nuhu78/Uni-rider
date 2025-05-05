@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <title>User Registration</title>
-  <link rel="stylesheet" href="userstyle.css">
-  <script src="uservalidation.js" defer></script>
+  <link rel="stylesheet" href="../Css/userstyle.css">
+  <script src="../JS/uservalidation.js" defer></script>
 </head>
 <body>
   <div class="header">Uni-Rider</div>
