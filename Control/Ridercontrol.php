@@ -102,15 +102,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $isValid = false;
     }
 
+    // If all validation passes, insert into DB
     if ($isValid) {
-        $successMessage = "Registration successful!";
-        // optionally process/save data here
-        // clear input fields
-        $fullname = $email = $phone = $vehicle = $vehicle_reg = $license_no = $seats = $route = "";
+        require_once "../Model/db.php";
+
+        try {
+            // Check if email already exists
+            $checkStmt = $conn->prepare("SELECT * FROM riders WHERE email = ?");
+            $checkStmt->execute([$email]);
+
+            if ($checkStmt->rowCount() > 0) {
+                $errorEmail = "Email already registered.";
+            } else {
+                $stmt = $conn->prepare("INSERT INTO riders 
+                    (fullname, email, phone, vehicle, vehicle_reg, license_no, seats, route, password)
+                    VALUES 
+                    (:fullname, :email, :phone, :vehicle, :vehicle_reg, :license_no, :seats, :route, :password)");
+
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+                $stmt->bindParam(':fullname', $fullname);
+                $stmt->bindParam(':email', $email);
+                $stmt->bindParam(':phone', $phone);
+                $stmt->bindParam(':vehicle', $vehicle);
+                $stmt->bindParam(':vehicle_reg', $vehicle_reg);
+                $stmt->bindParam(':license_no', $license_no);
+                $stmt->bindParam(':seats', $seats);
+                $stmt->bindParam(':route', $route);
+                $stmt->bindParam(':password', $hashedPassword);
+
+                $stmt->execute();
+
+                $successMessage = "Registration successful!";
+
+                // Clear fields after success
+                $fullname = $email = $phone = $vehicle = $vehicle_reg = $license_no = $seats = $route = "";
+            }
+        } catch (PDOException $e) {
+            $errorEmail = "Error: " . $e->getMessage();
+        }
     }
 }
-else {
-    $fullname = $email = $phone = $vehicle = $vehicle_reg = $license_no = $seats = $route = "";
-}
-
 ?>
