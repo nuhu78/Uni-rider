@@ -35,6 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Gender validation
     if (empty($_POST["gender"])) {
         $errors['gender'] = "Please select your gender.";
+    } else {
+        $gender = $_POST["gender"];
     }
 
     // Password validation
@@ -48,8 +50,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // If no errors, process the form (e.g., save to database)
     if (empty($errors)) {
-        // Process the data
-        // For example: save to database or send email
+        // Include your database connection
+        require_once '../Model/db.php'; // Make sure this returns a PDO connection in $conn
+
+        // Hash the password
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Prepare and execute with PDO
+        $stmt = $conn->prepare("INSERT INTO users (fullname, username, email, phone, university_id, gender, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        if ($stmt) {
+            $result = $stmt->execute([
+                $fullname,
+                $username,
+                $email,
+                $phone,
+                $university_id,
+                $gender,
+                $hashed_password
+            ]);
+
+            if ($result) {
+                // Registration successful, you can redirect or show a message
+                // header("Location: success.php");
+                // exit();
+            } else {
+                $errors['database'] = "Database error: " . implode(" ", $stmt->errorInfo());
+            }
+        } else {
+            $errors['database'] = "Database prepare error: " . implode(" ", $conn->errorInfo());
+        }
+        // No need to close PDO connection
     }
 }
 ?>
