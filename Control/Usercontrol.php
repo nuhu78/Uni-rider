@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require_once '../Model/db.php'; // Make sure this returns a PDO connection in $conn
 
         // Hash the password
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $hashed_password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
         // Prepare and execute with PDO
         $stmt = $conn->prepare("INSERT INTO users (fullname, username, email, phone, university_id, gender, password) VALUES (?, ?, ?, ?, ?, ?, ?)");

@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     VALUES 
                     (:fullname, :email, :phone, :vehicle, :vehicle_reg, :license_no, :seats, :route, :password)");
 
-                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
                 $stmt->bindParam(':fullname', $fullname);
                 $stmt->bindParam(':email', $email);
