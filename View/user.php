@@ -13,7 +13,7 @@
   <center>
     <h2>User Registration Form</h2>
 
-    <form id="userForm" action="user.php" method="post">
+    <form id="userForm" action="../Control/usercontrol.php" method="post">
       <table border="1">
         <tr>
           <td>Full Name:</td>

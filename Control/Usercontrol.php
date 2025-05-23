@@ -53,31 +53,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Include your database connection
         require_once '../Model/db.php'; // Make sure this returns a PDO connection in $conn
 
-        // Hash the password
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        // Check for duplicate username or email
+        $stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE username = ? OR email = ?");
+        $stmt->execute([$username, $email]);
+        $count = $stmt->fetchColumn();
 
-        // Prepare and execute with PDO
-        $stmt = $conn->prepare("INSERT INTO users (fullname, username, email, phone, university_id, gender, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        if ($stmt) {
-            $result = $stmt->execute([
-                $fullname,
-                $username,
-                $email,
-                $phone,
-                $university_id,
-                $gender,
-                $hashed_password
-            ]);
-
-            if ($result) {
-                // Registration successful, you can redirect or show a message
-                // header("Location: success.php");
-                // exit();
-            } else {
-                $errors['database'] = "Database error: " . implode(" ", $stmt->errorInfo());
-            }
+        if ($count > 0) {
+            $errors['duplicate'] = "Username or email already exists.";
+            echo $errors['duplicate'];
         } else {
-            $errors['database'] = "Database prepare error: " . implode(" ", $conn->errorInfo());
+            // Hash the password
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+            // Prepare and execute with PDO
+            $stmt = $conn->prepare("INSERT INTO users (fullname, username, email, phone, university_id, gender, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            if ($stmt) {
+                $result = $stmt->execute([
+                    $fullname,
+                    $username,
+                    $email,
+                    $phone,
+                    $university_id,
+                    $gender,
+                    $hashed_password
+                ]);
+
+                if ($result) {
+                    // Registration successful, you can redirect or show a message
+                    header("Location: ../View/user.php");
+                    exit();
+                } else {
+                    $errors['database'] = "Database error: " . implode(" ", $stmt->errorInfo());
+                }
+            } else {
+                $errors['database'] = "Database prepare error: " . implode(" ", $conn->errorInfo());
+            }
         }
         // No need to close PDO connection
     }
