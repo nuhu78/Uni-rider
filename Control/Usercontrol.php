@@ -53,10 +53,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Include your database connection
         require_once '../Model/db.php'; // Make sure this returns a PDO connection in $conn
 
+<<<<<<< HEAD
         // Check for duplicate username or email
         $stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE username = ? OR email = ?");
         $stmt->execute([$username, $email]);
         $count = $stmt->fetchColumn();
+=======
+        // Hash the password
+        $hashed_password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+>>>>>>> c66c3de22fea6fac7567f29eb3aacffcc18f8c33
 
         if ($count > 0) {
             $errors['duplicate'] = "Username or email already exists.";
