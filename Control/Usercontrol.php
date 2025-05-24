@@ -79,9 +79,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ]);
 
                 if ($result) {
-                    // Registration successful, you can redirect or show a message
-                    header("Location: ../View/user.php");
-                    exit();
+                    // Registration successful, set a flag for the view
+                    $successMessage = "Registration successful!";
+                    // Do not redirect, let the view show the message
                 } else {
                     $errors['database'] = "Database error: " . implode(" ", $stmt->errorInfo());
                 }

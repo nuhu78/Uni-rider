@@ -1,6 +1,6 @@
-
-<?php include "../Control/Usercontrol.php"; ?>
-
+<?php 
+include "../Control/Usercontrol.php"; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +13,7 @@
   <center>
     <h2>User Registration Form</h2>
 
-    <form id="userForm" action="../Control/usercontrol.php" method="post">
+    <form id="userForm" action="../View/user.php" method="post">
       <table border="1">
         <tr>
           <td>Full Name:</td>
