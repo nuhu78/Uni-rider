@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['id'] = $user['id'];
                     $_SESSION['email'] = $user['email'];
                     $_SESSION['role'] = $role;
-                    header("Location: dashboard.php");
+                    header("Location: ../View/profile.php");
                     exit;
                 } else {
                     $loginError = "Incorrect password.";
