@@ -11,10 +11,26 @@ require_once "../Control/profilecontrol.php"; // $user is set here
 <body>
     <div class="profile-container">
         <h2>Your Profile</h2>
+        <?php if (!empty($successMsg)): ?>
+            <div class="success-message" id="successMsg"><?= htmlspecialchars($successMsg) ?></div>
+            <script>
+                setTimeout(function() {
+                    document.getElementById('successMsg').style.display = 'none';
+                }, 3000);
+            </script>
+        <?php endif; ?>
+        <div class="profile-picture-section">
+            <img src="<?= $profilePic ?>" alt="Profile Picture" class="profile-picture">
+            <form class="photo-form" method="post" enctype="multipart/form-data">
+                <input type="file" name="profile_picture" accept="image/*" required>
+                <button type="submit" name="upload_photo">
+                    <?= empty($user['profile_picture']) ? "Add Photo" : "Update Photo" ?>
+                </button>
+            </form>
+        </div>
         <?php if ($user): ?>
             <table>
-                <?php foreach ($user as $key => $value): ?>
-                    <?php if (in_array($key, ['id', 'password', 'registered_at'])) continue; ?>
+                <?php foreach ($profileData as $key => $value): ?>
                     <tr>
                         <th><?= htmlspecialchars(ucwords(str_replace('_', ' ', $key))) ?></th>
                         <td><?= htmlspecialchars($value) ?></td>
