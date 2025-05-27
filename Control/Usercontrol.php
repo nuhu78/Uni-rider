@@ -1,45 +1,43 @@
 <?php 
 $errors = [];
-
+session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Full name validation
+
     $fullname = trim($_POST["fullname"]);
     if (strlen($fullname) < 3) {
         $errors['fullname'] = "Full name must be at least 3 characters.";
     }
 
-    // Username validation
+
     $username = trim($_POST["username"]);
     if (empty($username) || preg_match('/\s/', $username)) {
         $errors['username'] = "Username cannot be empty or contain spaces.";
     }
 
-    // Email validation
+
     $email = trim($_POST["email"]);
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors['email'] = "Please enter a valid email address.";
     }
 
-    // Phone number validation
+
     $phone = trim($_POST["phone"]);
     if (!preg_match('/^\d{10,15}$/', $phone)) {
         $errors['phone'] = "Enter a valid phone number (10-15 digits).";
     }
 
-    // University ID validation
     $university_id = trim($_POST["university_id"]);
     if (strlen($university_id) < 4) {
         $errors['university_id'] = "University ID must be at least 4 characters.";
     }
 
-    // Gender validation
     if (empty($_POST["gender"])) {
         $errors['gender'] = "Please select your gender.";
     } else {
         $gender = $_POST["gender"];
     }
 
-    // Password validation
+
     $password = $_POST["password"];
     $confirm_password = $_POST["confirm_password"];
     if (strlen($password) < 6) {
@@ -48,50 +46,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors['confirm_password'] = "Passwords do not match.";
     }
 
+    $dob = $_POST["dob"];
+    $transport = $_POST["transport"];
+    $address = $_POST["address"];
+
     // If no errors, process the form (e.g., save to database)
     if (empty($errors)) {
-        // Include your database connection
-        require_once '../Model/db.php'; // Make sure this returns a PDO connection in $conn
+        $con = mysqli_connect("127.0.0.1:3306", "root", "", "unirider_db");
 
-        // Check for duplicate username or email
-        $stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE username = ? OR email = ?");
-        $stmt->execute([$username, $email]);
-        $count = $stmt->fetchColumn();
-        // Hash the password
-        $hashed_password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-
-        if ($count > 0) {
-            $errors['duplicate'] = "Username or email already exists.";
-            echo $errors['duplicate'];
-        } else {
-            // Hash the password
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-            // Prepare and execute with PDO
-            $stmt = $conn->prepare("INSERT INTO users (fullname, username, email, phone, university_id, gender, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            if ($stmt) {
-                $result = $stmt->execute([
-                    $fullname,
-                    $username,
-                    $email,
-                    $phone,
-                    $university_id,
-                    $gender,
-                    $hashed_password
-                ]);
-
-                if ($result) {
-                    // Registration successful, set a flag for the view
-                    $successMessage = "Registration successful!";
-                    // Do not redirect, let the view show the message
-                } else {
-                    $errors['database'] = "Database error: " . implode(" ", $stmt->errorInfo());
-                }
-            } else {
-                $errors['database'] = "Database prepare error: " . implode(" ", $conn->errorInfo());
+            if (!$con) {
+                die("Connection failed: " . mysqli_connect_error());
             }
-        }
-        // No need to close PDO connection
+
+            $sql = "INSERT INTO users (fullname,username,email,phone,university_id,gender,password,address,dob,transport) VALUES
+            ('$fullname', '$username', '$email', '$phone', '$university_id', '$gender', '$password','$address','$dob','$transport');";
+            $obj = mysqli_query($con, $sql);
+            if ($obj) {
+                echo "<script>alert('Data inserted successfully');</script>";
+                $_SESSION['is_success'] = true;
+                header("Location: ../View/admin_login.php");
+                //exit();
+            } else {
+                echo "<script>alert('Error inserting data');</script>";
+            }
+    }else {
+        // Display errors
+        
+          //  echo "<span class='error'>$error</span><br>";
+          //echo "<script>alert('Please fix the errors in the form.');</script>";
+          foreach ($errors as $error) {
+              echo "<script>alert('$error');</script>";
+          }
+        
     }
 }
 ?>
